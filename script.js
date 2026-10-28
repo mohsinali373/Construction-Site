@@ -10,7 +10,7 @@
   const onScroll = () => {
     const y = scrollY;
     const h = document.documentElement.scrollHeight - innerHeight;
-    bar.style.width = (h > 0 ? (y / h) * 100 : 0) + '%';
+    bar.style.transform = `scaleX(${h > 0 ? y / h : 0})`;
     nav.classList.toggle('scrolled', y > 40);
     ticking = false;
   };
