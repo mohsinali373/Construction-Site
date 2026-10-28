@@ -315,7 +315,6 @@ h1{font-size:clamp(2.4rem,5.2vw,4.3rem);margin-bottom:14px}
 @media(max-width:420px){.logo{font-size:1.1rem}.logo svg{width:24px;height:24px}.nav-inner{gap:8px;padding-left:14px}}
 
 /* perf: skip rendering work for off-screen sections */
-.section,.cta,.footer{content-visibility:auto;contain-intrinsic-size:auto 700px}
 .hero-visual,.card,.about-visual{will-change:transform}
 
 /* ===== banner v2 ===== */
@@ -453,3 +452,8 @@ h1{font-size:clamp(2.4rem,5.2vw,4.3rem);margin-bottom:14px}
   .wa-pop{right:14px;bottom:82px}
 }
 @media(prefers-reduced-motion:reduce){.hero .bg-img,.hero-collage .orb,.spin-badge>svg{animation:none}}
+
+/* tighter vertical rhythm: no double padding between neighbouring plain sections */
+.section{padding:90px 0}
+.section:not(.sand):not(.faq-sec)+.section:not(.sand):not(.faq-sec){padding-top:10px}
+@media(max-width:760px){.section{padding:64px 0}}
