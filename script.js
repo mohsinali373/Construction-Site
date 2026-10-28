@@ -76,15 +76,64 @@
     open('https://wa.me/923184415455?text=' + encodeURIComponent(msg), '_blank', 'noopener');
   });
 
+  // before / after slider
+  const ba = $('#ba'), range = $('input', ba);
+  const setBa = v => ba.style.setProperty('--pos', v + '%');
+  range.addEventListener('input', () => setBa(range.value));
+  setBa(range.value);
+  let nudged = false;
+  new IntersectionObserver((es, o) => es.forEach(e => {
+    if (!e.isIntersecting || nudged) return;
+    nudged = true; o.disconnect();
+    const t0 = performance.now();
+    const go = t => {
+      const p = Math.min((t - t0) / 1600, 1);
+      const v = 50 + Math.sin(p * Math.PI * 2) * 25 * (1 - p);
+      range.value = v; setBa(v);
+      if (p < 1) requestAnimationFrame(go);
+    };
+    requestAnimationFrame(go);
+  }), { threshold: .6 }).observe(ba);
+
+  // rotating headline word
+  const rot = $('#rot'), words = ['Marble', 'Tiles', 'Stone', 'Brickwork', 'Stairs', 'Home Construction'];
+  let wi = 0;
+  if (!matchMedia('(prefers-reduced-motion:reduce)').matches) {
+    setInterval(() => {
+      rot.classList.add('out');
+      setTimeout(() => {
+        wi = (wi + 1) % words.length;
+        rot.textContent = words[wi];
+        rot.classList.remove('out');
+      }, 350);
+    }, 2400);
+  }
+
+  // WhatsApp nudge bubble
+  const pop = $('#waPop');
+  let seen = false;
+  try { seen = sessionStorage.getItem('waPop') === '1'; } catch (e) {}
+  if (!seen) setTimeout(() => { pop.hidden = false; requestAnimationFrame(() => pop.classList.add('show')); }, 6000);
+  $('#waX').addEventListener('click', () => {
+    pop.classList.remove('show');
+    setTimeout(() => { pop.hidden = true; }, 400);
+    try { sessionStorage.setItem('waPop', '1'); } catch (e) {}
+  });
+
   const fine = matchMedia('(hover:hover) and (pointer:fine)').matches;
   const calm = matchMedia('(prefers-reduced-motion:reduce)').matches;
   if (!fine || calm) return;
 
-  // hero frame tilt
-  const frame = $('.frame'), hero = $('.hero');
+  // hero collage parallax + cursor glow
+  const hero = $('.hero'), shots = $$('.shot');
   hero.addEventListener('mousemove', e => {
     const x = e.clientX / innerWidth - .5, y = e.clientY / innerHeight - .5;
-    frame.style.transform = `rotateY(${-8 + x * 12}deg) rotateX(${3 - y * 10}deg)`;
+    shots.forEach(s => {
+      const d = +s.dataset.depth;
+      s.style.setProperty('--px', (x * d).toFixed(1) + 'px');
+      s.style.setProperty('--py', (y * d).toFixed(1) + 'px');
+    });
+    hero.style.setProperty('--gx', e.clientX + 'px');
+    hero.style.setProperty('--gy', (e.clientY - hero.getBoundingClientRect().top) + 'px');
   });
-  hero.addEventListener('mouseleave', () => { frame.style.transform = ''; });
 })();

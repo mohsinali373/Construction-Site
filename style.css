@@ -317,3 +317,139 @@ h1{font-size:clamp(2.4rem,5.2vw,4.3rem);margin-bottom:14px}
 /* perf: skip rendering work for off-screen sections */
 .section,.cta,.footer{content-visibility:auto;contain-intrinsic-size:auto 700px}
 .hero-visual,.card,.about-visual{will-change:transform}
+
+/* ===== banner v2 ===== */
+.hero{padding-bottom:150px}
+.hero .hero-shade{background:linear-gradient(95deg,rgba(6,22,19,.92) 20%,rgba(6,22,19,.45))}
+.eyebrow-bar{display:inline-block;padding-left:14px;border-left:4px solid var(--accent2);color:var(--accent-l);font-weight:600;font-size:1.02rem;margin-bottom:20px}
+.hero h1{font-size:clamp(2.2rem,4.6vw,3.9rem)}
+.hero .lead b{color:#fff}
+.trust-row{display:flex;flex-wrap:wrap;align-items:center;gap:22px}
+.avatars{display:flex}
+.avatars span{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;font-weight:700;color:#fff;border:3px solid #123a33;margin-left:-12px;box-shadow:0 4px 12px rgba(0,0,0,.35)}
+.avatars span:first-child{margin-left:0;background:#b84a25}
+.avatars span:nth-child(2){background:#2e7d6b}
+.avatars span:nth-child(3){background:#c58a2d}
+.avatars span:nth-child(4){background:#4a5d8f}
+.tr-item b{display:block;font-size:2rem;line-height:1;font-weight:700;color:var(--accent-l)}
+.tr-item small{display:block;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.8);margin-top:4px}
+.tr-item .stars{font-size:1.25rem;line-height:1}
+
+.hero-person{position:relative;height:min(660px,78vh);display:flex;justify-content:center;align-items:flex-end}
+.hero-person .glow{position:absolute;inset:8% 6% 0;border-radius:50% 50% 8% 8%/38% 38% 8% 8%;background:radial-gradient(circle at 50% 30%,rgba(224,118,58,.65),rgba(224,118,58,.1) 60%,transparent 75%)}
+.hero-person img{position:relative;height:100%;width:auto;max-width:100%;object-fit:cover;object-position:50% 12%;aspect-ratio:2/3;border-radius:36px 36px 0 0;transition:transform .25s ease-out;-webkit-mask-image:linear-gradient(to bottom,#000 70%,transparent);mask-image:linear-gradient(to bottom,#000 70%,transparent)}
+.name-card{position:absolute;left:50%;bottom:18px;translate:-50% 0;padding:12px 24px;border-radius:18px;text-align:center;white-space:nowrap}
+.name-card b{display:block;font-size:1.15rem}
+.name-card small{color:var(--accent-l)}
+.hero-person .float-card{display:flex;align-items:center;gap:12px}
+.hero-person .c1{top:12%;left:-2%;right:auto;bottom:auto}
+.hero-person .c2{top:42%;right:-2%;bottom:auto;left:auto}
+.urdu-sm{font-family:'Noto Nastaliq Urdu',serif;color:#ffd2b8!important;line-height:2}
+
+.trust-strip{position:relative;z-index:5;margin-top:-84px}
+.trust-strip ul{display:grid;grid-template-columns:repeat(4,1fr);border-radius:28px;background:rgba(255,255,255,.9)}
+.trust-strip li{display:flex;align-items:center;gap:14px;padding:26px 24px;border-right:1px solid rgba(18,58,51,.1)}
+.trust-strip li:last-child{border:0}
+.trust-strip i{flex:none;width:50px;height:50px;border-radius:15px;display:grid;place-items:center;background:var(--forest);color:var(--accent-l)}
+.trust-strip i svg{width:24px;height:24px}
+.trust-strip b{display:block;line-height:1.2}
+.trust-strip small{color:var(--muted);font-size:.85rem}
+
+/* ===== before / after ===== */
+.ba-wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:center}
+.ba-wrap h2{font-size:clamp(2rem,3.8vw,2.9rem);margin-bottom:10px}
+.ba-copy{color:var(--muted);margin:10px 0 4px}
+.ba-wrap .btn{margin-top:6px}
+.ba{--pos:50%;position:relative;aspect-ratio:4/3;border-radius:28px;overflow:hidden;box-shadow:0 30px 70px rgba(18,58,51,.3);border:6px solid #fff;user-select:none;touch-action:pan-y}
+.ba-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ba-before{position:absolute;inset:0;clip-path:inset(0 calc(100% - var(--pos)) 0 0)}
+.ba-handle{position:absolute;top:0;bottom:0;left:var(--pos);width:3px;background:#fff;translate:-50% 0;box-shadow:0 0 14px rgba(0,0,0,.4);pointer-events:none}
+.ba-handle i{position:absolute;top:50%;left:50%;width:48px;height:48px;border-radius:50%;translate:-50% -50%;background:var(--accent);border:3px solid #fff;box-shadow:0 6px 18px rgba(0,0,0,.4)}
+.ba-handle i::before,.ba-handle i::after{content:"";position:absolute;top:50%;width:0;height:0;border:6px solid transparent;translate:0 -50%}
+.ba-handle i::before{left:6px;border-right-color:#fff;border-left:0}
+.ba-handle i::after{right:6px;border-left-color:#fff;border-right:0}
+.ba input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.ba:has(input:focus-visible){outline:3px solid var(--accent2);outline-offset:3px}
+.ba-tag{position:absolute;top:16px;padding:6px 16px;border-radius:999px;font-weight:600;font-size:.8rem;letter-spacing:.12em;pointer-events:none}
+.t-before{left:16px}.t-after{right:16px}
+
+@media(max-width:1000px){
+  .hero{padding-bottom:130px}
+  .hero-person{height:520px}
+  .trust-strip ul{grid-template-columns:1fr 1fr}
+  .trust-strip li:nth-child(2){border-right:0}
+  .trust-strip li:nth-child(-n+2){border-bottom:1px solid rgba(18,58,51,.1)}
+  .ba-wrap{grid-template-columns:1fr;gap:40px}
+}
+@media(max-width:600px){
+  .hero-person{height:440px}
+  .hero-person .c1{left:0}.hero-person .c2{right:0;top:46%}
+  .trust-strip{margin-top:-70px}
+  .trust-strip ul{grid-template-columns:1fr}
+  .trust-strip li{border-right:0!important;border-bottom:1px solid rgba(18,58,51,.1);padding:18px 20px}
+  .trust-strip li:last-child{border:0}
+  .tr-item b{font-size:1.7rem}
+}
+
+/* ===== banner v3: collage ===== */
+.hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(420px circle at var(--gx,70%) var(--gy,30%),rgba(246,167,124,.16),transparent 70%)}
+.hero .bg-img{animation:kb 26s ease-in-out infinite alternate}
+@keyframes kb{from{transform:scale(1)}to{transform:scale(1.12) translate(-1.5%,-1%)}}
+.rot-wrap{display:inline-block;min-width:1ch}
+.rot{display:inline-block;transition:transform .35s var(--ease),opacity .35s;will-change:transform}
+.rot.out{transform:translateY(-60%);opacity:0}
+
+.hero-collage{position:relative;height:min(600px,76vh)}
+.hero-collage .orb{position:absolute;inset:6% 4%;border-radius:50%;background:conic-gradient(from 0deg,rgba(224,118,58,.55),rgba(246,167,124,.05),rgba(224,118,58,.55));filter:blur(46px);animation:spin 18s linear infinite;opacity:.8}
+@keyframes spin{to{transform:rotate(360deg)}}
+.shot{position:absolute;margin:0;border-radius:26px;overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,.5),0 0 0 6px rgba(255,255,255,.14);transform:translate(var(--px,0),var(--py,0)) rotate(var(--rot,0deg));transition:transform .25s ease-out}
+.shot img{width:100%;height:100%;object-fit:cover}
+.shot figcaption{position:absolute;left:12px;bottom:12px;padding:6px 14px;border-radius:999px;font-weight:600;font-size:.85rem}
+.s1{--rot:2deg;width:56%;height:84%;left:22%;top:8%;z-index:2;animation:bob 7s ease-in-out infinite}
+.s2{--rot:-6deg;width:42%;height:34%;left:0;bottom:2%;z-index:3;animation:bob 6s ease-in-out infinite -2s}
+.s3{--rot:5deg;width:40%;height:36%;right:0;top:0;z-index:1;animation:bob 8s ease-in-out infinite -4s}
+.badge-float{position:absolute;z-index:4;padding:12px 18px;border-radius:18px;display:flex;align-items:center;gap:10px;animation:bob 6s ease-in-out infinite}
+.badge-float b{display:block;font-weight:600}
+.badge-float small{color:rgba(255,255,255,.75);display:block}
+.b1{left:-3%;top:16%}
+.b2{right:-2%;bottom:20%;flex-direction:column;align-items:flex-start;gap:2px;animation-delay:-3s}
+.spin-badge{position:absolute;z-index:5;right:6%;top:42%;width:112px;height:112px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent2),var(--accent));color:#fff;box-shadow:0 14px 34px rgba(184,74,37,.55);transition:transform .35s var(--ease)}
+.spin-badge:hover{transform:scale(1.1)}
+.spin-badge>svg{position:absolute;inset:0;width:100%;height:100%;animation:spin 14s linear infinite}
+.spin-badge text{fill:#fff;font:700 10.5px var(--font);letter-spacing:.5px}
+.spin-badge span{position:relative}
+
+/* ===== finishes gallery ===== */
+.finishes{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:230px;gap:18px}
+.fin{position:relative;border-radius:24px;overflow:hidden;isolation:isolate;box-shadow:0 14px 36px rgba(18,58,51,.2)}
+.fin img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-1;transition:transform 1.2s var(--ease)}
+.fin:hover img{transform:scale(1.14)}
+.f-big{grid-column:span 2;grid-row:span 2}
+.f-wide{grid-column:span 2}
+.fin span{position:absolute;left:14px;bottom:14px;padding:10px 18px;border-radius:16px;transition:transform .5s var(--ease)}
+.fin b{display:block;font-weight:600}
+.fin small{color:rgba(255,255,255,.8)}
+.fin em{position:absolute;top:14px;right:14px;font-style:normal;font-size:.8rem;font-weight:600;color:#fff;background:#1fa855;padding:6px 14px;border-radius:999px;opacity:0;transform:translateY(-8px);transition:.4s var(--ease)}
+.fin:hover em,.fin:focus-visible em{opacity:1;transform:none}
+.fin:hover span{transform:translateY(-6px)}
+
+/* ===== whatsapp nudge ===== */
+.wa-pop{position:fixed;right:20px;bottom:90px;z-index:95;width:min(290px,calc(100% - 40px));padding:18px 18px 16px;border-radius:20px;background:rgba(255,255,255,.92);opacity:0;transform:translateY(16px) scale(.96);transition:opacity .4s var(--ease),transform .4s var(--ease)}
+.wa-pop.show{opacity:1;transform:none}
+.wa-pop p{color:var(--muted);font-size:.92rem;margin:4px 0 12px}
+.wa-pop .btn{width:100%}
+.wa-x{position:absolute;top:6px;right:8px;width:36px;height:36px;border:0;background:none;font-size:1.5rem;line-height:1;color:var(--muted);cursor:pointer}
+
+@media(max-width:1000px){
+  .hero-collage{height:480px;max-width:520px;margin-inline:auto;width:100%}
+  .finishes{grid-template-columns:repeat(2,1fr);grid-auto-rows:200px}
+  .f-big{grid-column:span 2;grid-row:span 1}
+}
+@media(max-width:600px){
+  .hero-collage{height:400px}
+  .b1{left:0}.b2{right:0}
+  .spin-badge{width:92px;height:92px;right:2%}
+  .finishes{grid-auto-rows:170px;gap:12px}
+  .wa-pop{right:14px;bottom:82px}
+}
+@media(prefers-reduced-motion:reduce){.hero .bg-img,.hero-collage .orb,.spin-badge>svg{animation:none}}
