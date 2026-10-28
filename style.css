@@ -457,3 +457,45 @@ h1{font-size:clamp(2.4rem,5.2vw,4.3rem);margin-bottom:14px}
 .section{padding:90px 0}
 .section:not(.sand):not(.faq-sec)+.section:not(.sand):not(.faq-sec){padding-top:10px}
 @media(max-width:760px){.section{padding:64px 0}}
+
+/* ===== conversion copy styles ===== */
+.nowrap{white-space:nowrap}
+.btn-lg{min-height:58px;padding:0 36px;font-size:1.08rem}
+.eyebrow-bar .dot{display:inline-block;margin-right:8px;vertical-align:middle}
+.micro{display:flex;flex-wrap:wrap;gap:8px 22px;margin:-14px 0 30px;font-size:.92rem;color:rgba(255,255,255,.85)}
+.micro span::before{content:"\2713";color:#4ade80;font-weight:700;margin-right:7px}
+
+.pains{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-bottom:44px}
+.pain{border-radius:var(--r);background:#fff;border:1px solid rgba(18,58,51,.08);box-shadow:0 12px 34px rgba(18,58,51,.1);overflow:hidden;transition:transform .5s var(--ease),box-shadow .5s}
+.pain:hover{transform:translateY(-6px);box-shadow:0 22px 48px rgba(18,58,51,.18)}
+.pain p{display:flex;gap:14px;align-items:flex-start;padding:20px 24px}
+.pain i{flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-weight:700;font-size:.95rem;color:#fff}
+.pain .bad{background:#fbeceb;font-weight:600;color:#7a1f18}
+.pain .bad i{background:#c0392b}
+.pain .good{color:#25423c}
+.pain .good i{background:#1fa855}
+
+.xmodal{position:fixed;inset:0;z-index:300;display:grid;place-items:center;padding:16px;background:rgba(6,20,18,.65);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);opacity:0;transition:opacity .3s}
+.xmodal[hidden]{display:none}
+.xmodal.show{opacity:1}
+.xbox{position:relative;width:min(480px,100%);padding:38px 32px 30px;border-radius:28px;text-align:center;background:rgba(255,255,255,.95);transform:translateY(20px) scale(.96);transition:transform .45s var(--ease)}
+.xmodal.show .xbox{transform:none}
+.xbox h3{font-size:1.8rem;margin:4px 0 6px}
+.xbox p{color:var(--muted);margin-bottom:14px}
+.xbox .urdu{margin-bottom:8px}
+.xbox .btn{width:100%}
+.xcall{display:inline-block;margin-top:14px;font-weight:600;color:var(--accent)}
+
+@media(max-width:760px){
+  .pains{grid-template-columns:1fr}
+  .micro{margin-top:-8px}
+  .btn-lg{padding:0 24px}
+}
+
+/* popup close button */
+.xbox .wa-x{top:12px;right:12px;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:var(--forest);color:#fff;font-size:0;box-shadow:0 6px 16px rgba(18,58,51,.35);transition:transform .4s var(--ease),background .3s}
+.xbox .wa-x::before,.xbox .wa-x::after{content:"";position:absolute;width:18px;height:2.5px;border-radius:2px;background:#fff}
+.xbox .wa-x::before{transform:rotate(45deg)}
+.xbox .wa-x::after{transform:rotate(-45deg)}
+.xbox .wa-x:hover{background:var(--accent);transform:rotate(90deg) scale(1.08)}
+.xbox .wa-x:focus-visible{outline:3px solid var(--accent2);outline-offset:3px}

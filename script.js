@@ -109,16 +109,20 @@
     }, 2400);
   }
 
-  // WhatsApp nudge bubble
-  const pop = $('#waPop');
-  let seen = false;
-  try { seen = sessionStorage.getItem('waPop') === '1'; } catch (e) {}
-  if (!seen) setTimeout(() => { pop.hidden = false; requestAnimationFrame(() => pop.classList.add('show')); }, 6000);
-  $('#waX').addEventListener('click', () => {
-    pop.classList.remove('show');
-    setTimeout(() => { pop.hidden = true; }, 400);
-    try { sessionStorage.setItem('waPop', '1'); } catch (e) {}
-  });
+  // offer popup: appears 5 seconds after every page load
+  const xm = $('#xmodal');
+  const closeX = () => {
+    xm.classList.remove('show');
+    setTimeout(() => { xm.hidden = true; }, 300);
+  };
+  setTimeout(() => {
+    xm.hidden = false;
+    requestAnimationFrame(() => xm.classList.add('show'));
+    $('#xclose').focus({ preventScroll: true });
+  }, 5000);
+  $('#xclose').addEventListener('click', closeX);
+  xm.addEventListener('click', e => { if (e.target === xm) closeX(); });
+  addEventListener('keydown', e => { if (e.key === 'Escape' && !xm.hidden) closeX(); });
 
   const fine = matchMedia('(hover:hover) and (pointer:fine)').matches;
   const calm = matchMedia('(prefers-reduced-motion:reduce)').matches;
