@@ -317,7 +317,8 @@
       <label for="fphone">Phone Number</label>
       <input id="fphone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required placeholder="03XX XXXXXXX">
       <label for="fservice">Service Needed</label>
-      <select id="fservice" name="service">
+      <select id="fservice" name="service" required>
+        <option value="" disabled selected>Select a service</option>
         <option>Marble Flooring</option>
         <option>Tiles &amp; Stone</option>
         <option>Masonry Work</option>

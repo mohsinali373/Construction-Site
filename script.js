@@ -65,10 +65,10 @@
   form.addEventListener('submit', e => {
     e.preventDefault();
     const name = form.name.value.trim(), phone = form.phone.value.trim();
-    if (!name || phone.replace(/\D/g, '').length < 10) {
+    if (!name || phone.replace(/\D/g, '').length < 10 || !form.service.value) {
       err.hidden = false;
-      err.textContent = 'Please enter your name and a valid phone number.';
-      (name ? form.phone : form.name).focus();
+      err.textContent = 'Please enter your name, a valid phone number and select a service.';
+      (!name ? form.name : phone.replace(/\D/g, '').length < 10 ? form.phone : form.service).focus();
       return;
     }
     err.hidden = true;

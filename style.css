@@ -499,3 +499,9 @@ h1{font-size:clamp(2.4rem,5.2vw,4.3rem);margin-bottom:14px}
 .xbox .wa-x::after{transform:rotate(-45deg)}
 .xbox .wa-x:hover{background:var(--accent);transform:rotate(90deg) scale(1.08)}
 .xbox .wa-x:focus-visible{outline:3px solid var(--accent2);outline-offset:3px}
+
+/* select: custom, aligned arrow + placeholder colour */
+.form select{-webkit-appearance:none;appearance:none;padding-right:48px;cursor:pointer;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9' fill='none' stroke='%23123a33' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M1 1.5l6 6 6-6'/></svg>");background-repeat:no-repeat;background-position:right 18px center;background-size:14px 9px}
+.form select:invalid{color:#7b8683}
+.form select option{color:var(--ink)}
+.form select option[disabled]{color:#7b8683}
