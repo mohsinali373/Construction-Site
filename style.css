@@ -228,8 +228,8 @@ h1{font-size:clamp(2.4rem,5.2vw,4.3rem);margin-bottom:14px}
 @keyframes fab{0%{box-shadow:0 10px 30px rgba(37,211,102,.5),0 0 0 0 rgba(37,211,102,.6)}70%,100%{box-shadow:0 10px 30px rgba(37,211,102,.5),0 0 0 18px transparent}}
 
 /* reveal */
-.reveal{opacity:0;transform:translateY(36px) scale(.98);filter:blur(6px);transition:opacity .9s var(--ease),transform .9s var(--ease),filter .9s var(--ease)}
-.reveal.in{opacity:1;transform:none;filter:none}
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal.in{opacity:1;transform:none}
 .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
 
 /* responsive */
@@ -268,8 +268,48 @@ h1{font-size:clamp(2.4rem,5.2vw,4.3rem);margin-bottom:14px}
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition-duration:.01ms!important}
   html{scroll-behavior:auto}
-  .reveal{opacity:1;transform:none;filter:none}
+  .reveal{opacity:1;transform:none}
 }
 
 /* sticky header: always visible, denser glass once scrolled */
 .nav.scrolled .nav-inner{background:rgba(8,28,24,.78)}
+
+/* service action buttons */
+.svc-btn{display:inline-flex;align-items:center;gap:8px;margin-top:14px;min-height:44px;padding:0 20px;border-radius:999px;font-weight:600;font-size:.93rem;color:#fff;transition:transform .35s var(--ease),box-shadow .35s}
+.svc-btn.call{background:linear-gradient(135deg,var(--accent2),var(--accent));box-shadow:0 8px 22px rgba(184,74,37,.4)}
+.svc-btn.wa{background:#1fa855;box-shadow:0 8px 22px rgba(31,168,85,.4)}
+.svc-btn:hover{transform:translateY(-3px)}
+
+/* owner card */
+.owner{display:flex;align-items:center;gap:16px;padding:14px 16px;border-radius:999px;flex-wrap:wrap;max-width:max-content}
+.owner img{width:72px;height:72px;border-radius:50%;object-fit:cover;object-position:50% 18%;border:3px solid #fff;box-shadow:0 6px 18px rgba(18,58,51,.3);flex:none}
+.owner b{display:block;font-size:1.1rem}
+.owner small{color:var(--muted)}
+
+/* floating call + whatsapp */
+.fabs{position:fixed;right:20px;bottom:20px;display:flex;flex-direction:column;gap:14px;z-index:90}
+.fab{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;color:#fff;transition:transform .3s var(--ease)}
+.fab:hover{transform:scale(1.12)}
+.fab-wa{background:#25d366;animation:fab 2.4s infinite}
+.fab-call{background:linear-gradient(135deg,var(--accent2),var(--accent));animation:fabc 2.4s infinite .6s}
+@keyframes fabc{0%{box-shadow:0 10px 30px rgba(184,74,37,.5),0 0 0 0 rgba(184,74,37,.55)}70%,100%{box-shadow:0 10px 30px rgba(184,74,37,.5),0 0 0 18px transparent}}
+@media(max-width:600px){
+  .owner{border-radius:28px;max-width:100%}
+  .owner .btn{width:100%}
+  .svc-btn{width:100%;justify-content:center}
+}
+
+/* call button on the left, WhatsApp on the right */
+.fabs{inset:auto 0 20px 0;display:block;pointer-events:none;height:0}
+.fab{position:fixed;bottom:20px;pointer-events:auto}
+.fab-call{left:20px}
+.fab-wa{right:20px}
+@media(max-width:600px){
+  .fab{width:54px;height:54px;bottom:16px}
+  .fab-call{left:14px}.fab-wa{right:14px}
+}
+
+/* mobile nav fix: keep burger from shrinking */
+.burger{flex:none}
+.logo{flex:none}
+@media(max-width:420px){.logo{font-size:1.1rem}.logo svg{width:24px;height:24px}.nav-inner{gap:8px;padding-left:14px}}

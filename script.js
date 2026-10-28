@@ -87,12 +87,4 @@
     frame.style.transform = `rotateY(${-8 + x * 12}deg) rotateX(${3 - y * 10}deg)`;
   });
   hero.addEventListener('mouseleave', () => { frame.style.transform = ''; });
-
-  // gentle parallax on section background images
-  const bgs = $$('.bg-img');
-  addEventListener('scroll', () => requestAnimationFrame(() => bgs.forEach(img => {
-    const r = img.parentElement.getBoundingClientRect();
-    if (r.bottom < 0 || r.top > innerHeight) return;
-    img.style.transform = `translateY(${(r.top * -0.08).toFixed(1)}px) scale(1.12)`;
-  })), { passive: true });
 })();
