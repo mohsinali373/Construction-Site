@@ -505,3 +505,8 @@ h1{font-size:clamp(2.4rem,5.2vw,4.3rem);margin-bottom:14px}
 .form select:invalid{color:#7b8683}
 .form select option{color:var(--ink)}
 .form select option[disabled]{color:#7b8683}
+
+/* Review Trust Enhancements */
+.rev-stars{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px}
+.g-verified{display:inline-flex;align-items:center;gap:4px;font-size:0.75rem;font-weight:600;color:#1fa855;background:rgba(31,168,85,0.1);padding:3px 8px;border-radius:12px}
+.av-img{width:52px;height:52px;border-radius:50%;object-fit:cover;border:2.5px solid var(--accent);box-shadow:0 4px 12px rgba(18,58,51,0.18);flex-shrink:0}
